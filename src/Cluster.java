@@ -55,6 +55,7 @@ public class Cluster {
         System.out.println(x + ", " + y);
     }
 
+
     public void clear(){
         points.clear();
     }

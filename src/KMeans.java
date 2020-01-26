@@ -17,7 +17,7 @@ public class KMeans implements PixelFilter {
     @Override
     public DImage processImage(DImage img) {
         short[][] bw = img.getBWPixelGrid();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 12; i++) {
             for (int r = 0; r < bw.length; r++) {
                 for (int c = 0; c < bw[0].length; c++) {
                     if (bw[r][c] == 255) {

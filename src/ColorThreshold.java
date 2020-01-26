@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ColorThreshold implements PixelFilter, Clickable {
      ArrayList<Ball> balls;
-    private int th = 20;
+    int th = 20;
 
 
     public ColorThreshold(){

@@ -1,29 +1,31 @@
 import processing.core.PApplet;
 
-public class BD implements PixelFilter, Clickable{
-    Blur blur;
+public class Face implements PixelFilter, Clickable {
     ColorThreshold color;
+    Blur blur;
     KMeans kmeans;
 
-    public BD(){
+    public Face() {
         color = new ColorThreshold();
         blur = new Blur();
         kmeans = new KMeans();
+
     }
 
     @Override
     public DImage processImage(DImage img) {
-        DImage b = new DImage(blur.processImage(img));
-        DImage c = new DImage(color.processImage(b));
-        DImage k = new DImage(kmeans.processImage(c));
-
+        DImage c = color.processImage(img);
+        DImage b = blur.processImage(c);
+        DImage k = new DImage(kmeans.processImage(b));
+        //color.processImage(b);
         return k;
     }
 
+
     @Override
     public void drawOverlay(PApplet window, DImage original, DImage filtered) {
-        kmeans.drawOverlay(window, original, filtered);    }
-
+        kmeans.drawOverlay(window, original, filtered);
+    }
 
     @Override
     public void mouseClicked(int mouseX, int mouseY, DImage img) {
@@ -37,6 +39,8 @@ public class BD implements PixelFilter, Clickable{
 
     @Override
     public void keyPressed(char key) {
-        color.keyPressed(key);
+
     }
+
 }
+
